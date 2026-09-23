@@ -19,7 +19,7 @@ window.SITE = {
 
   hero: {
     name: "Hi, I'm Zahra!",
-    tagline: "I'm an AI pilled, Data Scientist turned Product Manager who loves to build products at the intersection of AI and real user stories.",
+    tagline: "I'm an AI pilled, Data Scientist turned Product Manager. Slightly obsessed with building things people actually use! :D",
     simple: {
       tagline: ""
     }
@@ -43,12 +43,12 @@ window.SITE = {
       company: "Danone",
       when: "2020",
       place: "",
-      title: "First Machine Learning Solution for the company",
+      title: "The company's first ML product",
       ai: true,
-      built: "ML based sales prediction tool for the sales strategy team",
+      built: "ML powered sales strategy tool",
       challenges: "Most of the data came from the distributors which came in unstructured and formats across different distributors. The tool needed to be well integrated to the sales team's existing tool to prioritize usability and avoid steep learning curve.",
       simple: {
-        built: "Sales forecasts for distributors.",
+        built: "ML powered sales strategy tool.",
         challenges: "Getting forecasts actually used."
       },
       image: "images/01-danone.jpg",
@@ -58,9 +58,9 @@ window.SITE = {
       company: "IBM",
       when: "2021",
       place: "",
-      title: "Credit Scoring Automation",
+      title: "Automating credit scoring",
       ai: false,
-      built: "End to End automated Credit Scoring processes.",
+      built: "Automated end-to-end credit scoring across 200+ branches of a legacy auto-financing business.",
       challenges: "Revamping the legacy systems, explaining the new processes to the directors.",
       simple: {
         built: "Credit Scoring Automation.",
@@ -133,9 +133,9 @@ window.SITE = {
 
   end: {
     title: "Now: MIT Sloan",
-    text: "I moved to Cambridge in 2026 for the MBA. I'm learning how to build products and AI systems that are human-first, and solves business problems",
+    text: "Next: ?",
     simple: {
-      text: "Doing my MBA in Cambridge since 2026. Next: AI products."
+      text: "Doing my MBA in Cambridge since 2026. Next: AI native products!"
     },
     links: [
       { label: "Email",    href: "mailto:zahra@wassil.com" },
