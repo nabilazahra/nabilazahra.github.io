@@ -1,0 +1,124 @@
+:root{
+  /* Claude light theme */
+  --bg:#FAF9F5;        /* swap to #F0EEE6 if you want the slightly deeper cream */
+  --ink:#141413;       /* line, dots, arrow, and text all share this */
+  --body:#3B3A36;
+  --muted:#6C6B66;
+  --hairline:#E6E3DA;
+  --img-bg:#F0EEE6;
+  --gutter:6rem;       /* width of the center channel the line runs down */
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:1rem;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:64rem;margin:0 auto;padding:0 1.5rem}
+a{color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- top nav ---------- */
+.topnav{
+  position:sticky;top:0;z-index:10;
+  display:flex;justify-content:center;
+  padding:.875rem 1rem;
+  background:var(--bg);
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hairline);
+}
+.toggles{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.toggle{
+  font:inherit;font-size:.875rem;line-height:1.2;
+  padding:.45rem 1rem;border-radius:999px;
+  border:1px solid var(--hairline);background:transparent;color:var(--ink);
+  cursor:pointer;transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+.toggle:hover{border-color:var(--ink)}
+.toggle[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.toggle:focus-visible{border-radius:999px}
+
+/* ---------- hero ---------- */
+.hero{text-align:center;padding:7rem 0 4rem}
+h1{font-size:clamp(2.25rem,6vw,3.75rem);line-height:1.1;letter-spacing:-.025em;font-weight:600;margin:0 0 1.25rem}
+.hero p{max-width:34rem;margin:0 auto;color:var(--muted);font-size:1.0625rem}
+
+/* ---------- timeline ---------- */
+.timeline{position:relative;padding:5rem 0 4rem}
+.track{position:absolute;top:0;bottom:3rem;left:50%;width:1px;background:var(--hairline);transform:translateX(-.5px)}
+.progress{position:absolute;top:0;left:50%;width:1px;height:0;background:var(--ink);transform:translateX(-.5px)}
+.progress::after{ /* arrowhead riding the tip */
+  content:"";position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);
+  border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid var(--ink);
+}
+
+.item{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr var(--gutter) 1fr;
+  margin-bottom:6rem;
+  animation:rise .45s ease both;
+}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+
+.item .dot{
+  position:absolute;left:50%;top:.45rem;width:9px;height:9px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--hairline);transform:translateX(-50%);
+  transition:background-color .3s ease,border-color .3s ease;
+}
+.item.passed .dot{background:var(--ink);border-color:var(--ink)}
+
+/* sides are assigned by script.js so they stay alternating when items are hidden */
+.item.left .content{grid-column:1;text-align:right}
+.item.right .content{grid-column:3;text-align:left}
+
+.meta{font-size:.8125rem;color:var(--muted);letter-spacing:.02em;margin:0 0 .4rem}
+.meta .company{color:var(--ink);font-weight:600}
+h2{font-size:1.1875rem;font-weight:600;letter-spacing:-.01em;line-height:1.4;margin:0 0 .25rem}
+
+.block{margin-top:.9rem}
+.label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .2rem}
+.block p{margin:0;color:var(--body);font-size:.9688rem;max-width:26rem}
+.item.left .block p{margin-left:auto}
+
+figure{margin:1.25rem 0 0}
+figure img{
+  display:block;width:100%;max-width:26rem;aspect-ratio:4/3;object-fit:cover;
+  background:var(--img-bg);border-radius:6px;
+}
+.item.left figure img{margin-left:auto}
+figcaption{font-size:.8125rem;color:var(--muted);margin-top:.5rem}
+
+.empty{text-align:center;color:var(--muted);margin:0 0 4rem}
+
+/* ---------- end ---------- */
+.end{text-align:center;padding:1rem 0 8rem;max-width:34rem;margin:0 auto}
+.end h2{font-size:1.5rem;margin-bottom:.75rem}
+.end p{color:var(--body);margin:0 0 1rem}
+.links{list-style:none;padding:0;margin:2rem 0 0;display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem 1.75rem;font-size:.9375rem}
+
+/* ---------- mobile: line moves left, everything stacks right of it ---------- */
+@media (max-width:760px){
+  :root{--gutter:0}
+  .hero{padding:4.5rem 0 2rem}
+  .track,.progress{left:6px}
+  .timeline{padding-left:1.75rem}
+  .item{display:block;margin-bottom:4rem}
+  .item .dot{left:6px}
+  .item.left .content,
+  .item.right .content{text-align:left}
+  .item.left .block p,
+  .item.left figure img{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
