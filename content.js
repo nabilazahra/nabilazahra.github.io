@@ -51,7 +51,7 @@ window.SITE = {
         built: "ML powered sales strategy tool.",
         challenges: "Getting forecasts actually used."
       },
-      image: "images/01-danone.png",
+      image: "images/01-danone.jpg",
       caption: ""
     },
     {
